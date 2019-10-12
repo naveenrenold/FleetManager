@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Areas of Chennai</title>
+<style type="text/css">
+	.pull-up{
+	margin-top : -168.8vw;
+	margin-left: 12vw;
+}
+</style>
+</head>
+<body>
+<table border="1px">
+{% for town in towns %}
+<tr>
+<td>
+
+{{town}} 
+<br>
+</td>
+</tr>
+
+{% endfor %}
+
+</table>
+<table class="pull-up" border="1px">
+
+{% for val in towns.values %}
+<tr>
+<td>
+{{val}}
+</td>
+</tr>
+
+{% endfor %}
+</table>
+
+</body>
+</html>

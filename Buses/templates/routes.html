@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load staticfiles %}
+	<title>Routes</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/materialize.min.css' %}">
+<script src="{% static 'js/materialize.min.js' %}"></script>
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="{% static 'js/jquery-2.1.3.min.js' %}"></script>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> -->
+{#        <script src="https://maps.googleapis.com/maps/api/js?v=3.11&sensor=false" type="text/javascript"></script>#}
+
+    <center><div>
+	<img src="{% static "img/thumb.jpg" %}" alt="MTC Logo" style="height: 148px"/>
+	<img src="{% static "img/bannerMTC.jpg" %}" alt="MTC Banner"/>
+	<img src="{% static "img/2000px-TamilNadu_Logo.jpg" %}" alt="TN Gov Logo" style="height: 148px"/>
+</div></center>
+
+<style>
+      #map {
+        width: 50%;
+        height: 400px;
+        background-color: grey;
+      }
+
+    </style>
+
+</head>
+<body>
+<!-- {% for stages in ob %}
+	{{source}} -
+
+
+	{% for route in ob2 %}
+		{{route}}
+	{% endfor %}
+	<br>
+
+{% endfor %}
+<br>
+<br><br><br>
+{{dest}} -
+{% for route in ob3 %}
+		{{route}}
+	{% endfor %}
+
+<br><br><br> -->
+<center>
+
+<center><h5>Route</h5></center>
+{#    <iframe#}
+{#  width="600"#}
+{#  height="450"#}
+{#  frameborder="0" style="border:0"#}
+{#  src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCytF0GnMN-bLfsPmR-6R3ShRo0xoC5YQ8#}
+{#    &origin=madurai#}
+{#  &destination=chennai#}
+{#  &mode=transit" allowfullscreen>#}
+{#</iframe>#}
+{#    <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d62211.759623509526!2d80.1369946836157!3d12.956810453438314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x3a525f14844aad0f%3A0xe16d3a66c4ce38d4!2sTambaram%2C%20Chennai%2C%20Tamil%20Nadu!3m2!1d12.9249308!2d80.1000026!4m5!1s0x3a525d5b9b3bfc6f%3A0x6959f97669f90baa!2sThiruvanmiyur%2C%20Chennai%2C%20Tamil%20Nadu!3m2!1d12.983026899999999!2d80.2594001!5e0!3m2!1sen!2sin!4v1570812891376!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>#}
+<div id="myMap" style="position:relative;width:800px;height:600px;"></div>
+    <div id='routeInfoPanel'></div>
+</center>
+
+<!-- <CENTER><div id="map">asd</div></CENTER>
+<script>
+      // function initMap() {
+      //   var uluru = {lat: -25.363, lng: 131.044};
+      //   var map = new google.maps.Map(document.getElementById('map'), {
+      //     zoom: 4,
+      //     center: uluru
+      //   });
+      //   var marker = new google.maps.Marker({
+      //     position: uluru,
+      //     map: map
+      //   });
+      // }
+      var locations = [
+      ['Bondi Beach', -33.890542, 151.274856, 4],
+      ['Coogee Beach', -33.923036, 151.259052, 5],
+      ['Cronulla Beach', -34.028249, 151.157507, 3],
+      ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+      ['Maroubra Beach', -33.950198, 151.259302, 1]
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 10,
+      center: new google.maps.LatLng(-33.92, 151.25),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+    </script> -->
+    <!-- <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmpS9RwVmQLBCxTOZ9u5hrQtPw3yESprA&callback=initMap">
+    </script> -->
+
+    <center><h5>Current Location</h5></center>
+<div id="myMap2"style="position:relative;width:800px;height:600px;margin-left:350px;"></div>
+    <Center></Center>
+{#<!-- {{ob5|safe}} -->#}
+{#    // var locations = [#}
+{#    //   ['Bondi Beach', -33.890542, 151.274856, 4],#}
+{#    //   ['Coogee Beach', -33.923036, 151.259052, 5],#}
+{#    //   ['Cronulla Beach', -34.028249, 151.157507, 3],#}
+{#    //   ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],#}
+{#    //   ['Maroubra Beach', -33.950198, 151.259302, 1]#}
+{#    // ];#}
+<script>
+var locations ={{ob5|safe}};
+</script>
+    {#var map = new google.maps.Map(document.getElementById('map'), {#}
+    {#  zoom: 11,#}
+    {#  center: new google.maps.LatLng(13.0478573, 80.0689238),#}
+    {#  mapTypeId: google.maps.MapTypeId.ROADMAP#}
+      {#  )#}
+    {##}
+    {#var features = [#}
+    {##}
+    {#]#}
+    {#var infowindow = new google.maps.InfoWindow();#}
+    {##}
+    {#var marker, i;#}
+    {##}
+    {#for (i = 0; i < locations.length; i++) {#}
+    {#  marker = new google.maps.Marker({#}
+    {#    position: new google.maps.LatLng(locations[i][1], locations[i][2]),#}
+    {#    icon : "{% static "img/bus.png" %}",#}
+    {#    // animation: google.maps.Animation.DROP,#}
+    {##}
+    {#    map: map,#}
+    {#    title :'Bus',#}
+    {#    // marker.addListener('click', toggleBounce);#}
+    {##}
+    {#  });#}
+    {##}
+    {##}
+    {##}
+    {#  google.maps.event.addListener(marker, 'click', (function(marker, i) {#}
+    {#    return function() {#}
+    {#      infowindow.setContent("Bus Route: "+locations[i][0]+" |ETA: "+locations[i][3]+" |Occupancy: "+locations[i][4]);#}
+    {#      infowindow.open(map, marker);#}
+    {#    }#}
+    {#  })(marker, i));#}
+
+{#     function toggleBounce() {#}
+{#  // if (marker.getAnimation() !== null) {#}
+{#  //   marker.setAnimation(null);#}
+{#  // } else {#}
+{#  //   marker.setAnimation(google.maps.Animation.BOUNCE);#}
+{#  // }#}
+{##}
+{#    }#}
+
+<hr>
+<center><h5>Buses from {{source}} to {{dest}}:</h5></center>
+<br>
+<CENTER>
+<table class="striped centered">
+<thead>
+<tr>
+	<th>Bus Route</th>
+	<th>Occupancy</th>
+	<th>ETA(mins)</th>
+	<th>Latitude</th>
+	<th>Longitude</th>
+</tr>
+</thead>
+<tbody>
+{% for route,crowd,eta,lat,lon in ob4 %}
+<tr>
+
+	<td>	{{route}}</td>
+	<td>	{{crowd}}</td>
+	<td>	{{eta}}</td>
+	<td>	{{lat}}</td>
+	<td>	{{lon}}</td>
+</tr>
+
+	{% endfor %}
+	</tbody>
+</table>
+<script>
+    var map;
+    var directionsManager;
+    var infobox;
+    var map2;
+
+        function GetMap(){
+            map = new Microsoft.Maps.Map('#myMap', {});
+            var a="{{source}}";
+            var b = "{{dest}}";
+            Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
+                //Create an instance of the directions manager.
+                var directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
+
+                //Calculate a date time that is 1 hour from now.
+                var departureTime  = new Date();
+                departureTime.setMinutes(departureTime.getHours() + 1);
+
+                //Set Route Mode to transit.
+                directionsManager.setRequestOptions({
+                    routeMode: Microsoft.Maps.Directions.RouteMode.transit,
+                    time: departureTime,
+                    timeType: Microsoft.Maps.Directions.TimeTypes.departure
+                });
+
+                //Add waypoints.
+                var waypoint1 = new Microsoft.Maps.Directions.Waypoint({ address: a });
+                directionsManager.addWaypoint(waypoint1);
+
+                var waypoint2 = new Microsoft.Maps.Directions.Waypoint({ address: b});
+                directionsManager.addWaypoint(waypoint2);
+
+                //Set the element in which the itinerary will be rendered.
+                directionsManager.setRenderOptions({ itineraryContainer: document.getElementById('directionsItinerary') });
+
+                //Calculate directions.
+                directionsManager.calculateDirections();
+            });
+        }
+        function GetMap2() {
+        map2 = new Microsoft.Maps.Map('#myMap2', {});
+        //Create an infobox at the center of the map but don't show it.
+        infobox = new Microsoft.Maps.Infobox(map2.getCenter(), {
+            visible: false
+        });
+        infobox.setMap(map2);
+        {#var randomLocations = Microsoft.Maps.TestDataGenerator.getLocations(5, map.getBounds());#}
+        {##}
+        {#for (var i = 0; i < randomLocations.length; i++) {#}
+        {#    var pin = new Microsoft.Maps.Pushpin(randomLocations[i]);#}
+            map2.setView({
+            center: new Microsoft.Maps.Location(13.0827,80.2707),
+            zoom: 15
+        });
+            var randomLocations = Microsoft.Maps.TestDataGenerator.getLocations(5, map2.getBounds());
+
+        for (var i = 0; i < randomLocations.length; i++) {
+            var pin = new Microsoft.Maps.Pushpin(randomLocations[i]);
+
+            pin.metadata = {
+                title: 'Bus ' + (i+1),
+                description: 'Bus No:' + (i+1000)
+            };
+
+            //Add a click event handler to the pushpin.
+            Microsoft.Maps.Events.addHandler(pin, 'click', pushpinClicked);
+
+            //Add pushpin to the map.
+            map2.entities.push(pin);
+        }
+    }
+
+    function pushpinClicked(e) {
+        //Make sure the infobox has metadata to display.
+        if (e.target.metadata) {
+            //Set the infobox options with the metadata of the pushpin.
+            infobox.setOptions({
+                location: e.target.getLocation(),
+                title: e.target.metadata.title,
+                description: e.target.metadata.description,
+                visible: true
+            });
+        }
+    }
+</script>
+
+    <script>
+
+        function initialise() {
+        GetMap();
+        GetMap2();
+    }
+
+    </script>
+<script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=initialise&key=Avwqx1JF5029oVDwpLC0CS1wWROtIB9UHCCwbkqQGnLfvYLjJfN6OhABhsiInBMz' async defer></script>
+</CENTER>
+<center><a href="/"><button class="btn green">Back</button></a></center>
+<footer>&nbsp;</footer>
+</body>
+</html>
